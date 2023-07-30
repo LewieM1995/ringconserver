@@ -1,5 +1,4 @@
 //import modules
-
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -43,7 +42,7 @@ pool.getConnection((err, connection) => {
     // Use your routes
     app.use('/', Routes);
   
-    // Start the server
+    // Start the server/listen
     app.listen(port, () => {
       console.log(`Server is running on port ${port}`);
     });
@@ -60,8 +59,6 @@ app.use(cors({
 }));
 app.options('*', cors());
 
-
-//listener
 
 
 
