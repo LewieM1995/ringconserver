@@ -8,20 +8,29 @@ const pool = require('./database');
 //const corsOptions = require('Cmiddlewares\cors.js');
 
 
-//app
+//Express app
 const app = express();
 app.use(express.json());
 
+//authentication route
+
 //porting 
 const port = process.env.PORT || 8080;
+
+//middleware + CORS
+app.use(morgan('dev'));
+app.use(cors({
+    origin: ['http://localhost:3000', 'http://localhost:8080'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+app.options('*', cors());
 
 //routes
 //const Routes = require('./routes/data');
 
 
 //db
-
-
 pool.getConnection((err, connection) => {
     if (err) {
       console.error('Error connecting to the database:', err);
@@ -50,14 +59,6 @@ pool.getConnection((err, connection) => {
   
 
 
-//middleware
-app.use(morgan('dev'));
-app.use(cors({
-    origin: ['http://localhost:3000', 'http://localhost:8080'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
-app.options('*', cors());
 
 
 
