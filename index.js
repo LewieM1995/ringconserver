@@ -44,7 +44,7 @@ pool.getConnection((err, connection) => {
   
     // Use the connection in your routes or controllers
     app.use((req, res, next) => {
-      req.socket = connection;
+      req.dbConnection = connection;
       next();
     });
   
