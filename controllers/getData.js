@@ -15,7 +15,7 @@ exports.getData = async (req, res) => {
         try {
         
     const twoWeeksAgo = new Date();
-    twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 60);
+    twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 300);
     const formattedTwoWeeksAgo = twoWeeksAgo.toISOString().split('T')[0];
         
     const productSize = req.query.productSize;
