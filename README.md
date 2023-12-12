@@ -1,6 +1,6 @@
 ## Ringcon - Server
 ## Description 
-This server is the backend component of the Ring Container app. It handles the logic for storing and retrieving data for the Next.js frontend application.
+This server is the backend component of the Ringcon app. It handles the logic for storing and retrieving data for the Next.js frontend application.
 
 ## Installation Instructions
 Clone the Repository:
