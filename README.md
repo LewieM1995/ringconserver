@@ -1,4 +1,4 @@
-## InputApp - Server
+## InputApp/ringcon - Server
 ## Description 
 This server is the backend component of the Ringcon app. It handles the logic for storing and retrieving data for the Next.js frontend application.
 
