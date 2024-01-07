@@ -5,9 +5,9 @@ This server is the backend component of the Ringcon app. It handles the logic fo
 ## Installation Instructions
 Clone the Repository:
 
-git clone https://github.com/LewieM1995/InputAppServer.git
+git clone https://github.com/LewieM1995/ringconserver.git
 
-cd InputAppServer
+cd ringconserver
 
 Install Dependencies:
 
