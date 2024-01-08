@@ -30,7 +30,7 @@ exports.postData = async (req, res) => {
       const [submitResult] = await connection.execute('INSERT INTO submission (submission_time) VALUES (?)', [submissionTime]);
       const submissionId = submitResult.insertId;
 
-      await connection.execute('INSERT INTO Inspection (visual_inspection, seam_inspection, submission_id) VALUES (?, ?, ?)', [
+      await connection.execute('INSERT INTO inspection (visual_inspection, seam_inspection, submission_id) VALUES (?, ?, ?)', [
         visual_inspection.value,
         seam_inspection.value,
         submissionId

@@ -23,15 +23,19 @@ exports.getData = async (req, res) => {
         
     const query = `
         SELECT s.submission_time, m.weight, m.height, m.minimum_wall_thickness
-        FROM measurement AS m
-        INNER JOIN product_details AS pd ON m.submission_id = pd.submission_id
-        INNER JOIN submission AS s ON pd.submission_id = s.id
+        FROM submission AS s
+        INNER JOIN product_details AS pd ON s.submission_id = pd.submission_id
+        INNER JOIN measurement AS m ON pd.submission_id = m.submission_id
         WHERE s.submission_time >= '${formattedTwoWeeksAgo}'
-          AND pd.product_size = '${productSize}'
+        AND pd.product_size = '${productSize}'
     `;
       
 
     const [data] = await connection.execute(query);
+    //console.log('Query Result:', data);
+    //console.log('Sample Row:', data[0]);
+
+
 
     const result = data.map((row) => ({
         submission_time: formatDate(row.submission_time),
@@ -39,8 +43,7 @@ exports.getData = async (req, res) => {
         height: parseFloat(row.height),
         minimum_wall_thickness: parseFloat(row.minimum_wall_thickness),
     }));
-      
-
+    
         res.status(200).json(result);
             //console.log(result);
         } catch (error) {

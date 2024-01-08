@@ -36,10 +36,10 @@ exports.getDataTable = async (req, res) => {
         pd.cavity
       FROM
         submission s
-        INNER JOIN inspection i ON s.id = i.submission_id
-        INNER JOIN machine_details md ON s.id = md.submission_id
-        INNER JOIN measurement m ON s.id = m.submission_id
-        INNER JOIN product_details pd ON s.id = pd.submission_id
+        INNER JOIN inspection i ON s.submission_id = i.submission_id
+        INNER JOIN machine_details md ON s.submission_id = md.submission_id
+        INNER JOIN measurement m ON s.submission_id = m.submission_id
+        INNER JOIN product_details pd ON s.submission_id = pd.submission_id
       WHERE 
         pd.product_size = '${productSize}';
     `;
