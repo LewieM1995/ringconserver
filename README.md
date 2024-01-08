@@ -1,13 +1,13 @@
-## InputApp - Server
+## Ringcon - Server
 ## Description 
 This server is the backend component of the Ringcon app. It handles the logic for storing and retrieving data for the Next.js frontend application.
 
 ## Installation Instructions
 Clone the Repository:
 
-git clone https://github.com/LewieM1995/InputAppServer.git
+git clone https://github.com/LewieM1995/ringcon.git
 
-cd InputAppServer
+cd ringcon
 
 Install Dependencies:
 
